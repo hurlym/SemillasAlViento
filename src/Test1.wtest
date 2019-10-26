@@ -1,0 +1,78 @@
+import Planta.*
+import Soja.*
+import SojaTransgenica.*
+import Menta.*
+import HierbaBuena.*
+import Parcelas.*
+import Quinoa.*
+
+
+
+describe "Test Plantas"{
+	
+	var menta1 = new Menta(altura = 1, anioObtencion = 0)
+	var menta2 = new Menta(altura = 0.3, anioObtencion = 0)
+	
+	var soja1 = new Soja(altura = 0.6, anioObtencion = 2009)
+	var quinoa1 = new Quinoa(altura = 0, cuantoSolTolera = 12, anioObtencion = 2010)
+	var quinoa2 = new Quinoa(altura = 0, cuantoSolTolera = 9, anioObtencion = 2001)
+	
+	var parce = new Parcelas(ancho = 20, alto = 1, hsSol = 8, esEcologica = true)
+	var soja2 = new Soja(altura = 1.1, anioObtencion = 2009)
+	
+	
+	
+	
+	
+	
+	test "Test Menta" {
+
+	assert.that(menta1.daSemillas())
+	assert.equals(3, menta1.espacioQueOcupa())
+	
+	assert.notThat(menta2.daSemillas())
+	assert.equals(0.9, menta2.espacioQueOcupa())
+
+}
+
+test "Test Soja" {
+
+
+	assert.notThat(soja1.daSemillas())
+	assert.equals(7, soja1.cuantoSolTolera())
+	assert.equals(0.3, soja1.espacioQueOcupa())
+	
+}	
+	
+	
+test "Test Quinoa" {
+
+	assert.that(quinoa1.daSemillas())
+	assert.that(quinoa2.daSemillas())
+	
+	
+}	
+	
+	test "Test Parcela" {
+		
+	assert.equals(20, parce.cantSuperficie())
+	assert.equals(4, parce.cantMaxima())
+	parce.plantar(soja2)
+	parce.plantar(soja2)
+	parce.plantar(soja2)
+	parce.plantar(soja2)
+	
+	//SI AGREGO UNA PLANTA MAS ME VA A DAR ERROR
+	//parce.plantar(soja2)
+	
+	
+	
+	
+}	
+
+
+	
+	
+	
+	
+}
